@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1039221856517",
+    "project_id": "projetolpiv"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1039221856517:android:a325c1a65f8613d1",
+        "android_client_info": {
+          "package_name": "com.steplabs.projetolpiv"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1039221856517-g92dekqct3p82n66c7oh67kop61jroos.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.steplabs.projetolpiv",
+            "certificate_hash": "b89b7c040a602c89d5550fe348377e98af38312d"
+          }
+        },
+        {
+          "client_id": "1039221856517-05b1dhpe69b77s2bn0oi905nar455t91.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPU-6clD5gojiuA56ghZjZ3eA1tJDUIOg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
