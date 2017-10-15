@@ -49,6 +49,9 @@
         <activity
             android:name=".InitialActivity"
             android:label="@string/title_activity_initial"></activity>
+        <activity
+            android:name=".NewProductActivity"
+            android:label="@string/title_activity_new_product"></activity>
     </application>
 
 </manifest>

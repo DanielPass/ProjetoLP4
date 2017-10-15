@@ -215,7 +215,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask.execute((Void) null);
 
             //TODO: Replace this
-            startActivity(new Intent(LoginActivity.this, InitialActivity.class));
+            startActivity(new Intent(LoginActivity.this, NewProductActivity.class));
         }
     }
 

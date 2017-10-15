@@ -11,8 +11,15 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
+    <string name="item_name">Item's Name</string>
+    <string name="type_item">Type of Item</string>
+    <string name="Description_item">Description of Item</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
     <string name="title_activity_initial">Map</string>
+    <string name="title_activity_new_product">New Product</string>
+    <string name="button_save">Save</string>
+    <string name="ticket_subject">Subject of Ticket</string>
+    <string name="ticket_Description">Description of Ticket</string>
 </resources>
