@@ -10,7 +10,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.steplab.projetolpiv.projetolpiv.LoginActivity">
 
-    <!-- Login progress -->
+    <!-- LoginAnswer progress -->
     <ScrollView
         android:id="@+id/login_form"
         android:layout_width="match_parent"
@@ -70,7 +70,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:text="@string/action_sign_in"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:onClick="Login"/>
 
             <TextView
                 android:id="@+id/forgot_password_textview"
@@ -86,7 +87,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
-                android:text="Não possuo cadastro" />
+                android:text="Im not have a login" />
 
         </LinearLayout>
     </ScrollView>

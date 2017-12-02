@@ -57,6 +57,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Alexsander\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\retrofit\2.1.0\2de7cd8b95b7021b1d597f049bcb422055119f2c\retrofit-2.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2de7cd8b95b7021b1d597f049bcb422055119f2c">
+        <dex dex="D:\Dev\Android\ProjetoLP4\app\build\intermediates\transforms\dex\debug\folders\1000\10\retrofit-2.1.0_aa9ad59ac3b71f2c3cd27324d86671bf6cd9babf\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Alexsander\.android\build-cache\08c5fd2cf4d43de0e476975cbb41e517ae3b6850\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -99,6 +108,15 @@
         revision="25.0.2"
         sha1="654b294d429b56fd18392f2b68ad79954f431f8e">
         <dex dex="D:\Dev\Android\ProjetoLP4\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b7ff56c1d0d73157727f85aefc0ea902cca92904\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Alexsander\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.9.0\f824591a0016efbaeddb8300bee54832a1398cfa\okio-1.9.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="f824591a0016efbaeddb8300bee54832a1398cfa">
+        <dex dex="D:\Dev\Android\ProjetoLP4\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.9.0_0e76d817a9f6b750e2c1acb08bc49c2930270ac7\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -246,6 +264,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Alexsander\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.4.0\76d5ab52302434606c732539314290db91ebf25\okhttp-3.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="076d5ab52302434606c732539314290db91ebf25">
+        <dex dex="D:\Dev\Android\ProjetoLP4\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.4.0_c521ccf4f10868ccbd596a730ba7f5d37ce476d4\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Alexsander\.android\build-cache\d127fb0f0fb88a5e56d0915b39fa3c261c1e21ee\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -336,6 +363,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="C:\Users\Alexsander\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.4\695b63d702f505b9b916e02272e3b6381bade7f\gson-2.4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0695b63d702f505b9b916e02272e3b6381bade7f">
+        <dex dex="D:\Dev\Android\ProjetoLP4\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.4_92d4bf9106d3c2c76ec06f86752d3f65a450e2e8\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="C:\Users\Alexsander\.android\build-cache\cfc3597f2bb4db965e345b63d8dfc9159d1bc60e\output\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -369,6 +405,15 @@
         revision="25.0.2"
         sha1="421a5cebe9ff187c98075c59786e9464c5c67d36">
         <dex dex="D:\Dev\Android\ProjetoLP4\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_67f68fcacf6c0613a99466935bc63569c151106d\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Alexsander\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\logging-interceptor\3.4.0\73ccf14fba19ce2190297ac801579f3a85f1c0e8\logging-interceptor-3.4.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="73ccf14fba19ce2190297ac801579f3a85f1c0e8">
+        <dex dex="D:\Dev\Android\ProjetoLP4\app\build\intermediates\transforms\dex\debug\folders\1000\10\logging-interceptor-3.4.0_69a0674bfbd7c86b497a7abcf6caba7d317a4b45\classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -412,8 +457,17 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="087eccb441cd485cc57bc50d4a1b86eea75f09f4">
+        sha1="cc88df1747e07480b4f4259b11f961634bd039ce">
         <dex dex="D:\Dev\Android\ProjetoLP4\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_957c79cebe1a9ae3db1538caec9ab94f65176db1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\Alexsander\.gradle\caches\modules-2\files-2.1\com.squareup.retrofit2\converter-gson\2.0.0-beta4\de5935a367ba5e343e9df786ac8fc0c7d52b5f0c\converter-gson-2.0.0-beta4.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="de5935a367ba5e343e9df786ac8fc0c7d52b5f0c">
+        <dex dex="D:\Dev\Android\ProjetoLP4\app\build\intermediates\transforms\dex\debug\folders\1000\10\converter-gson-2.0.0-beta4_d7725b7ead17d72aa3b590a43777ef12e2bf4597\classes.dex" />
     </item>
     <item
         is-multidex="true"
