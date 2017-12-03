@@ -39,6 +39,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Model.LoginAnswer;
+import Utils.Database;
+import Utils.WebServiceUtil;
 import WebService.IWebService;
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -56,10 +58,16 @@ public class LoginActivity extends AppCompatActivity {
     private LoginAnswer answer;
     private static final String ERRO = "Erro: ";
     private static final String INFO = "INFO: ";
+    public Database db = new Database(this);
+    public WebServiceUtil web;
 
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
+        if (!(db.recoverToken() == null)){
+            Intent it = new Intent(this, NewProductActivity.class);
+            startActivity(it);
+        }
         setContentView(R.layout.activity_login);
     }
 
@@ -67,19 +75,21 @@ public class LoginActivity extends AppCompatActivity {
 
         TextView textViewemail = (TextView) findViewById(R.id.email);
         TextView textViewpassword = (TextView) findViewById(R.id.password);
+        web = new WebServiceUtil();
 
         String email = textViewemail.getText().toString();
         String password = textViewpassword.getText().toString();
 
         answer = new LoginAnswer();
 
-        try{
-            Retrofit retrofit = new Retrofit.Builder()
-                    .baseUrl(IWebService.URL_BASE)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build();
+        if(db.recoverToken() != null){
+            Intent it = new Intent(this, NewProductActivity.class);
+            startActivity(it);
+            return;
+        }
 
-            IWebService service = retrofit.create(IWebService.class);
+        try{
+            IWebService service = web.getiWebService();
 
             Call<LoginAnswer> requestLogin = service.login(email,password);
 
@@ -87,11 +97,16 @@ public class LoginActivity extends AppCompatActivity {
                 @Override
                 public void onResponse(Call<LoginAnswer> call, Response<LoginAnswer> response) {
                     if (!response.isSuccessful()){
+                        answer = response.body();
+                        Toast.makeText(LoginActivity.this, "deucerto? " + answer.getToken(), Toast.LENGTH_SHORT).show();
                         Log.i(ERRO,"Erro: " + response.message());
                     }else{
                         answer = response.body();
-                        Toast.makeText(LoginActivity.this, "deucerto?" + answer.getMessage(), Toast.LENGTH_SHORT).show();
-                        Log.i(INFO,"Aeeee carai: " + answer.getToken());
+
+                        if (answer.getToken() == null)
+                            Toast.makeText(LoginActivity.this,"An error has ocurred: " +answer.getMessage(), Toast.LENGTH_SHORT).show();
+                        else
+                            loginsucefull(answer);
                     }
                 }
                 @Override
@@ -101,6 +116,16 @@ public class LoginActivity extends AppCompatActivity {
             });
         }catch (Exception ex){
             Log.e(ERRO,"Erro " + ex.getMessage());
+        }
+    }
+
+    private void loginsucefull(LoginAnswer answer) {
+        try{
+            db.saveToken(answer);
+            Intent it = new Intent(this, NewProductActivity.class);
+            startActivity(it);
+        }catch (Exception ex){
+            Toast.makeText(LoginActivity.this,ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 }

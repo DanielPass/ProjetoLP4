@@ -22,4 +22,5 @@
     <string name="button_save">Save</string>
     <string name="ticket_subject">Subject of Ticket</string>
     <string name="ticket_Description">Description of Ticket</string>
+    <string name="error_ocurred">An error as Ocurred</string>
 </resources>
