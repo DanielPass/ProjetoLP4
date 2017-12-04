@@ -47,27 +47,10 @@
         android:layout_marginTop="@dimen/activity_half_vertical_margin"/>
 
     <EditText
-        android:id="@+id/confirm_email"
-        android:hint="Confirme o email"
-        android:inputType="textEmailAddress"
-        android:maxLines="1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_half_vertical_margin"/>
-
-    <EditText
         android:id="@+id/phone_number"
         android:hint="Telefone"
         android:inputType="phone"
         android:maxLines="1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_half_vertical_margin"/>
-
-    <EditText
-        android:id="@+id/birth_date"
-        android:hint="Data de nascimento"
-        android:inputType="date"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/activity_half_vertical_margin"/>

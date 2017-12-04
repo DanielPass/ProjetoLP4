@@ -28,9 +28,7 @@ public class NewAccountActivity extends AppCompatActivity {
         password_EditText = (EditText) findViewById(R.id.password);
         confirmPassword_EditText = (EditText) findViewById(R.id.confirm_password);
         email_EditText = (EditText) findViewById(R.id.email);
-        confirmEmail_EditText = (EditText) findViewById(R.id.confirm_password);
         phoneNumber_EditText = (EditText) findViewById(R.id.phone_number);
-        birthDate_EditText = (EditText) findViewById(R.id.birth_date);
         registry_Button = (Button) findViewById(R.id.registry_btn);
         alreadyHaveAccount_TextView = (TextView) findViewById(R.id.already_have_account);
 
