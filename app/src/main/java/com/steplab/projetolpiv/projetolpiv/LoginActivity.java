@@ -37,12 +37,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 import Model.LoginAnswer;
 import Utils.Database;
-import Utils.Validate;
 import Utils.WebServiceUtil;
 import WebService.IWebService;
 import retrofit2.Call;
@@ -64,8 +61,6 @@ public class LoginActivity extends AppCompatActivity {
     public Database db = new Database(this);
     public WebServiceUtil web;
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
@@ -81,7 +76,6 @@ public class LoginActivity extends AppCompatActivity {
         TextView textViewemail = (TextView) findViewById(R.id.email);
         TextView textViewpassword = (TextView) findViewById(R.id.password);
         web = new WebServiceUtil();
-        Validate validator = new Validate();
 
         String email = textViewemail.getText().toString();
         String password = textViewpassword.getText().toString();
@@ -109,7 +103,7 @@ public class LoginActivity extends AppCompatActivity {
                         answer = response.body();
 
                         if (answer.getToken() == null)
-                            Toast.makeText(LoginActivity.this,"Erro: " +answer.getMessage(), Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this,"An error has ocurred: " +answer.getMessage(), Toast.LENGTH_SHORT).show();
                         else
                             loginsucefull(answer);
                     }
@@ -132,11 +126,6 @@ public class LoginActivity extends AppCompatActivity {
         }catch (Exception ex){
             Toast.makeText(LoginActivity.this,ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
-    }
-
-    public void goToCreateNewAccount(View view){
-        Intent it = new Intent(this, NewAccountActivity.class);
-        startActivity(it);
     }
 }
 
