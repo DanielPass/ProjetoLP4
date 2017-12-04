@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        if (db.recoverToken() != null) {
+        if (!(db.recoverToken() == null || db.recoverToken().equals(""))) {
             setContentView(R.layout.activity_initial);
         }else{
             setContentView(R.layout.activity_initial);

@@ -64,7 +64,7 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        if (!(db.recoverToken() == null)){
+        if ((db.recoverToken() == null && db.recoverToken().equals(""))){
             Intent it = new Intent(this, NewProductActivity.class);
             startActivity(it);
         }
@@ -82,7 +82,7 @@ public class LoginActivity extends AppCompatActivity {
 
         answer = new LoginAnswer();
 
-        if(db.recoverToken() != null){
+        if(db.recoverToken() == null && db.recoverToken().equals("")){
             Intent it = new Intent(this, NewProductActivity.class);
             startActivity(it);
             return;
@@ -98,8 +98,7 @@ public class LoginActivity extends AppCompatActivity {
                 public void onResponse(Call<LoginAnswer> call, Response<LoginAnswer> response) {
                     if (!response.isSuccessful()){
                         answer = response.body();
-                        Toast.makeText(LoginActivity.this, "deucerto? " + answer.getToken(), Toast.LENGTH_SHORT).show();
-                        Log.i(ERRO,"Erro: " + response.message());
+                        Toast.makeText(LoginActivity.this, "Erro: " + answer.getMessage(), Toast.LENGTH_SHORT).show();
                     }else{
                         answer = response.body();
 
@@ -111,11 +110,11 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 @Override
                 public void onFailure(Call<LoginAnswer> call, Throwable t) {
-                    Log.e(ERRO,"Erro " + t.getMessage());
+                    Toast.makeText(LoginActivity.this,t.getMessage(), Toast.LENGTH_SHORT).show();
                 }
             });
         }catch (Exception ex){
-            Log.e(ERRO,"Erro " + ex.getMessage());
+            Toast.makeText(LoginActivity.this,ex.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 

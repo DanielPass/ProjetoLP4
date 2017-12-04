@@ -16,7 +16,6 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:gravity="center"
-        android:background="@drawable/camera"
         android:orientation="vertical"
         android:weightSum="1">
 
@@ -24,6 +23,7 @@
             android:id="@+id/photo"
             android:layout_width="150dp"
             android:layout_height="150dp"
+            android:background="@drawable/camera"
             android:onClick="TirarFoto"/>
     </LinearLayout>
 

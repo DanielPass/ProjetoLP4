@@ -34,9 +34,12 @@ import java.util.jar.*;
 
 import Model.LoginAnswer;
 import Model.NewItemAnswer;
+import Utils.Database;
 import Utils.WebServiceUtil;
 import WebService.IWebService;
 import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 /**
  * Created by Alexsander on 08/10/2017.
@@ -48,6 +51,7 @@ public class NewProductActivity extends AppCompatActivity {
     ImageView img;
     NewItemAnswer answer;
     WebServiceUtil web;
+    Database db;
     static final int REQUEST_LOCATION = 1;
 
     @Override
@@ -55,8 +59,12 @@ public class NewProductActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_product);
         web = new WebServiceUtil();
-
         img = (ImageView) findViewById(R.id.photo);
+        db = new Database(this);
+        if ((db.recoverToken() == null && db.recoverToken().equals(""))){
+            Intent it = new Intent(this, NewProductActivity.class);
+            startActivity(it);
+        }
     }
 
     public void TirarFoto(View v) {
@@ -70,7 +78,6 @@ public class NewProductActivity extends AppCompatActivity {
         EditText nome = (EditText) findViewById(R.id.item_name);
         EditText descricao = (EditText) findViewById(R.id.description_item);
         RadioButton fruta = (RadioButton) findViewById(R.id.Fruit);
-        RadioButton tree = (RadioButton) findViewById(R.id.Tree);
 
 
         String photos;
@@ -86,13 +93,55 @@ public class NewProductActivity extends AppCompatActivity {
             type = 1;
         }
 
-        photos = ConverterToBase64(photo);
+        photos = ConverterToBase64(photo,img);
 
         latitude = getLatitude();
         longitude = getLongitude();
 
+        answer = new NewItemAnswer();
+        IWebService service = web.getiWebService();
 
+        try {
 
+            String token = db.recoverToken();
+            Call<NewItemAnswer> request = service.newProd(db.recoverToken(),name,type,description,photos, latitude, longitude);
+            Toast.makeText(NewProductActivity.this,"Iniciando envio", Toast.LENGTH_SHORT).show();
+            request.enqueue(new Callback<NewItemAnswer>() {
+                @Override
+                public void onResponse(Call<NewItemAnswer> call, Response<NewItemAnswer> response) {
+                    if (!response.isSuccessful()){
+                        answer = response.body();
+                        Toast.makeText(NewProductActivity.this, "Erro: " + answer.getMessage(), Toast.LENGTH_SHORT).show();
+                    }else{
+                        answer = response.body();
+
+                        if (answer.getStatus().equals("fail"))
+                            Toast.makeText(NewProductActivity.this,"An error has ocurred: "+answer.getStatus()+" " +answer.getMessage(), Toast.LENGTH_LONG).show();
+                        else
+                            Productsucefull();
+                    }
+                }
+
+                @Override
+                public void onFailure(Call<NewItemAnswer> call, Throwable t) {
+                    Toast.makeText(NewProductActivity.this,"Ocorreu uma falha " + t.getMessage(), Toast.LENGTH_SHORT).show();
+                }
+            });
+        }catch (Exception ex){
+            Toast.makeText(NewProductActivity.this, ex.getMessage() + answer.getMessage(), Toast.LENGTH_LONG).show();
+        }finally {
+            Toast.makeText(NewProductActivity.this,"Finalizando", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void Productsucefull(){
+        try {
+            Toast.makeText(NewProductActivity.this, "Product inserted successfully" + answer.getMessage(), Toast.LENGTH_SHORT).show();
+            Intent it = new Intent(this, InitialActivity.class);
+            startActivity(it);
+        }catch (Exception ex){
+            Toast.makeText(NewProductActivity.this, ex.getMessage() + answer.getMessage(), Toast.LENGTH_SHORT).show();
+        }
     }
 
 
@@ -161,7 +210,7 @@ public class NewProductActivity extends AppCompatActivity {
         }
     }
 
-    public String ConverterToBase64(Bitmap photo){
+    public String ConverterToBase64(Bitmap photo, ImageView img){
         String TAG = "GG";
         try {
             BitmapDrawable drawable = (BitmapDrawable) img.getDrawable();
@@ -169,7 +218,7 @@ public class NewProductActivity extends AppCompatActivity {
             ByteArrayOutputStream bos = new ByteArrayOutputStream();
             photo.compress(Bitmap.CompressFormat.PNG,100,bos);
             byte[] bb = bos.toByteArray();
-            return Base64.encodeToString(bb,0);
+            return Base64.encodeToString(bb,Base64.DEFAULT);
         }catch (Exception ex){
             Log.e(TAG, "ConverterToBase64: " + ex.getMessage());
         }
